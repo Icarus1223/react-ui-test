@@ -1,23 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import InputCard from './components/InputCard';
+import CheckBoxCard from './components/CheckBoxCard';
+import { useState } from 'react';
 
 function App() {
+  const [activeIndex, setActiveIndex] = useState(-1);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <main>
+        <div className="card" >
+          <InputCard
+            index={0}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+          />
+        </div>
+        <div className="card">
+          <InputCard
+            index={1}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+          />
+        </div>
+        <div className='card'>
+          <CheckBoxCard
+            index={2}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+          />
+        </div>
+      </main>
     </div>
   );
 }
